@@ -132,3 +132,10 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+#useful
+.DS_Store
+.gitignore
+
+#too heavy
+IMDb_pruned.sql

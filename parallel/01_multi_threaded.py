@@ -36,6 +36,11 @@ if __name__ == '__main__':
     # *join* => wait for a thread to have completed its task
     #
     # what would it happen if we removed the join call and execute the script?
+    # A possible answer is that it doesn't matter because there is the GIL, but what it
+    # really happen is that the code goes on ignoring the threads. Moreover there is not
+    # an order in thread starting.
+
+
     t1.join()
     t2.join()
 

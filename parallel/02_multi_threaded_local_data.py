@@ -45,3 +45,33 @@ if __name__ == '__main__':
 
     print()
     print(f'Time taken = {end - start:.2f} sec')
+
+
+'''
+Sì, in Python l'esistenza del GIL (Global Interpreter Lock) tende ad annullare le differenze pratiche tra 
+l'utilizzo di variabili condivise e variabili locali per thread.
+
+Il GIL è un meccanismo di protezione implementato nell'interprete CPython 
+(l'implementazione di riferimento di Python) che consente l'esecuzione di un solo 
+thread Python alla volta. Questo significa che anche se si utilizzano thread multipli
+per suddividere il carico di lavoro, essi verranno comunque eseguiti sequenzialmente, 
+uno alla volta, a causa del GIL.
+
+In effetti, il GIL limita l'effettiva parallellizzazione del codice Python su più 
+core di CPU, poiché consente a un solo thread di eseguire codice Python in un 
+determinato momento, bloccando gli altri thread. Questo può comportare un 
+risultato simile a quello che si otterrebbe se si utilizzassero variabili condivise 
+tra i thread, poiché i thread si alternano nell'accesso e nella modifica delle 
+variabili condivise, anche se vengono utilizzate variabili locali per thread.
+
+Tuttavia, è importante sottolineare che il GIL non influisce sulla gestione dei 
+dati locali per thread o sulla loro utilità concettuale nell'organizzare il codice. 
+Sebbene il GIL possa limitare l'effettiva concorrenza tra i thread in Python, 
+le variabili locali per thread possono comunque essere utili per garantire una 
+corretta separazione dei dati e prevenire interferenze tra i thread.
+
+In definitiva, mentre il GIL riduce l'impatto pratico delle differenze tra 
+l'utilizzo di variabili condivise e variabili locali per thread, l'uso di variabili 
+locali per thread può ancora avere vantaggi concettuali e organizzativi nel 
+codice sorgente.
+'''

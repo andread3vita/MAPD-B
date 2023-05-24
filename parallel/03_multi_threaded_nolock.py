@@ -71,3 +71,29 @@ if __name__ == '__main__':
     print()
     print(f'Time taken = {end - start:.2f} sec')
     print(Style.RESET_ALL)
+
+
+
+'''
+Il nome "nolock" nel programma "multi_threaded_nolock.py" potrebbe essere fuorviante.
+Non è corretto dire che non c'è nessun blocco o nessuna gestione del lock nel codice.
+Il programma utilizza infatti un blocco implicito, chiamato Global Interpreter Lock 
+(GIL), che controlla l'accesso simultaneo ai thread Python.
+
+Il termine "nolock" potrebbe riferirsi al fatto che il codice non utilizza 
+esplicitamente un oggetto di lock, come ad esempio `Lock` o `RLock` del modulo 
+`threading`, per gestire l'accesso concorrente alle variabili condivise. 
+Invece, il codice si affida al GIL per garantire che solo un thread alla volta possa 
+ùeseguire il codice Python.
+
+Tuttavia, è importante notare che il GIL non risolve tutti i problemi di concorrenza 
+e accesso concorrente ai dati. Sebbene il GIL prevenga la simultanea esecuzione di 
+più thread Python, non impedisce l'interferenza tra le operazioni di lettura e 
+scrittura da parte di thread diversi su variabili condivise. Pertanto, sebbene il
+programma non utilizzi esplicitamente un oggetto di lock, potrebbero verificarsi 
+situazioni di race condition o inconsistenze nei dati condivisi.
+
+In conclusione, il nome "nolock" nel programma potrebbe essere fuorviante 
+perché non indica l'assenza di meccanismi di blocco, ma piuttosto il fatto 
+che il codice si affida al GIL per la gestione dell'accesso concorrente.
+'''
